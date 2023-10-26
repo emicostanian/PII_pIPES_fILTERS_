@@ -4,6 +4,17 @@ using CompAndDel.Filters;
 using Ucu.Poo.Twitter;
 using Ucu.Poo.Cognitive;
 using System.Drawing;
+using SixLabors.ImageSharp;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+using Color = System.Drawing.Color;
+
 
 namespace CompAndDel
 {
@@ -13,8 +24,8 @@ namespace CompAndDel
         {
             // //PARTE1
             
-            //PictureProvider provider = new PictureProvider();
-            //IPicture picture = provider.GetPicture(@"luke.jpg");
+            PictureProvider provider = new PictureProvider();
+            IPicture picture = provider.GetPicture(@"luke.jpg");
 
             // //pipes y filters
             // IFilter filter1 = new FilterGreyscale();
@@ -60,7 +71,7 @@ namespace CompAndDel
 
             {
                 CognitiveFace cog = new CognitiveFace(true, Color.GreenYellow); //no reconoce la cara porque no esta a color
-                cog.Recognize(@"lando.jpg");
+                cog.Recognize(@"luke.jpg");
                 FoundFace(cog);
             }
 
